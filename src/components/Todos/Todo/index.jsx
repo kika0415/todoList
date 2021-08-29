@@ -8,13 +8,17 @@ import {
   ListItemText,
 } from '@material-ui/core';
 
-const Todo = ({ id, name, done }) => {
+const Todo = ({ id, content, done }) => {
+  const handleChange = event => {
+    console.log(event.target.checked);
+  };
+
   return (
     <ListItem>
       <ListItemIcon>
-        <Checkbox checked={done} />
+        <Checkbox checked={done} onChange={handleChange} />
       </ListItemIcon>
-      <ListItemText>{name}</ListItemText>
+      <ListItemText>{content}</ListItemText>
       <ListItemSecondaryAction>
         <Button variant='contained' color='secondary'>
           clear
