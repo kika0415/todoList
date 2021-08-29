@@ -1,14 +1,14 @@
 import React from 'react';
 import Todo from './Todo';
+import { List } from '@material-ui/core';
 
-const Todos = () => {
+const Todos = ({ todos, ...props }) => {
   return (
-    <div>
-      todos
-      <Todo />
-      <Todo />
-      <Todo />
-    </div>
+    <List>
+      {todos.map(todo => (
+        <Todo {...todo} key={todo.id} />
+      ))}
+    </List>
   );
 };
 

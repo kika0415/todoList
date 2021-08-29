@@ -2,14 +2,17 @@ import Header from './components/Header';
 import Todos from './components/Todos';
 import Footer from './components/Footer';
 
-import './App.css';
-
 const App = () => {
+  const todos = [
+    { id: 1, name: 'eating', done: true },
+    { id: 2, name: 'sleeping', done: true },
+    { id: 3, name: 'coding', done: false },
+  ];
   return (
     <div className='App'>
       <Header />
-      <Todos />
-      <Footer />
+      <Todos todos={todos} />
+      <Footer todos={todos} />
     </div>
   );
 };
