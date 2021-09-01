@@ -19,7 +19,7 @@ const Footer = () => {
         <ListItemText>done2/3</ListItemText>
         <ListItemSecondaryAction>
           <Button variant='contained' color='secondary'>
-            clear all
+            clear done
           </Button>
         </ListItemSecondaryAction>
       </ListItem>
