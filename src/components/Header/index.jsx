@@ -12,7 +12,7 @@ const Header = ({ addTodo, ...props }) => {
 
   return (
     <>
-      <TextField label='inout a todo, press enter to add' fullWidth onKeyUp={handleKeyUp} />
+      <TextField label='input a new todo, press enter to add' fullWidth onKeyUp={handleKeyUp} />
     </>
   );
 };

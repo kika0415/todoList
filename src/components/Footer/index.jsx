@@ -9,16 +9,23 @@ import {
   ListItemSecondaryAction,
 } from '@material-ui/core';
 
-const Footer = () => {
+const Footer = ({ todos, clearAllDone }) => {
+  const doneCnt = todos.filter(todo => todo.done).length;
+  const handleClick = () => {
+    clearAllDone();
+  };
+
   return (
     <List>
       <ListItem>
         <ListItemIcon>
-          <Checkbox />
+          <Checkbox checked={doneCnt === todos.length && doneCnt !== 0 ? true : false} />
         </ListItemIcon>
-        <ListItemText>done2/3</ListItemText>
+        <ListItemText>
+          done {doneCnt}/{todos.length}{' '}
+        </ListItemText>
         <ListItemSecondaryAction>
-          <Button variant='contained' color='secondary'>
+          <Button variant='contained' color='secondary' onClick={handleClick}>
             clear done
           </Button>
         </ListItemSecondaryAction>

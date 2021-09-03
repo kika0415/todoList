@@ -8,20 +8,23 @@ import {
   ListItemText,
 } from '@material-ui/core';
 
-const Todo = ({ id, content, done }) => {
+const Todo = ({ id, content, done, updateTodos, deleteTodo }) => {
   const handleChange = done => () => {
-    console.log(done);
-    // console.log(event.target.checked);
+    updateTodos({ id: id, content: content, done: !done });
+  };
+
+  const handleDelete = () => {
+    deleteTodo(id);
   };
 
   return (
     <ListItem button key={done} onClick={handleChange(done)}>
       <ListItemIcon>
-        <Checkbox />
+        <Checkbox checked={done} />
       </ListItemIcon>
       <ListItemText>{content}</ListItemText>
       <ListItemSecondaryAction>
-        <Button variant='contained' color='secondary'>
+        <Button variant='contained' color='secondary' onClick={handleDelete}>
           delete
         </Button>
       </ListItemSecondaryAction>
